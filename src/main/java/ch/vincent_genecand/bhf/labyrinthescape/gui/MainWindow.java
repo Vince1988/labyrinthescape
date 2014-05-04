@@ -3,7 +3,7 @@ package ch.vincent_genecand.bhf.labyrinthescape.gui;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class MainWindow extends JFrame {
+public class MainWindow extends JFrame implements Runnable {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,6 +21,14 @@ public class MainWindow extends JFrame {
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            this.repaint();
+        }
+
     }
 
 }

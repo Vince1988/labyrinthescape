@@ -17,7 +17,7 @@ public class LabyrinthPanel extends JPanel {
     public LabyrinthPanel(Labyrinth labyrinth) {
         this.labyrinth = labyrinth;
 
-        this.setPreferredSize(new Dimension(this.labyrinth.getColumns() * Labyrinth.TILE_SIZE + 1, this.labyrinth.getRows() * Labyrinth.TILE_SIZE + 1));
+        this.setPreferredSize(new Dimension(this.labyrinth.getColumns() * Labyrinth.TILE_SIZE, this.labyrinth.getRows() * Labyrinth.TILE_SIZE));
 
     }
 

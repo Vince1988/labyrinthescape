@@ -13,9 +13,9 @@ public class Labyrinth {
     private final int rows;
     private final Map<Point, Tile> tiles;
 
-    public Labyrinth(int width, int height) {
-        this.columns = width;
-        this.rows = height;
+    public Labyrinth(int columns, int rows) {
+        this.columns = columns;
+        this.rows = rows;
         this.tiles = new HashMap<>();
 
         this.initTiles();
@@ -31,7 +31,7 @@ public class Labyrinth {
     }
 
     public void generate() {
-        Tile t = this.getTileAt(1, 1);
+        Tile t = this.getTileAt(0, this.rows / 2);
         t.setState(TileState.EMPTY);
         this.nextTile(t);
         System.out.println("done");
@@ -40,6 +40,12 @@ public class Labyrinth {
     private void nextTile(Tile tile) {
         for (Orientation o : Orientation.getAllShuffled()) {
             if (this.isTileAheadUsable(o, tile)) {
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 this.getNeighbor(o, tile).setState(TileState.EMPTY);
                 this.nextTile(this.getNeighbor(o, tile));
             }
@@ -51,7 +57,7 @@ public class Labyrinth {
         if (!this.checkTile(tileAhead)) {
             return false;
         } else {
-            Tile front = this.getNeighbor(orientation, tile);
+            Tile front = this.getNeighbor(orientation, tileAhead);
             if (!this.checkTile(front)) {
                 return false;
             }
@@ -72,7 +78,7 @@ public class Labyrinth {
     }
 
     private boolean checkTile(Tile tile) {
-        return !(tile == null || tile.getState() == TileState.EMPTY);
+        return tile != null && tile.getState() == TileState.WALL;
     }
 
     public Tile getNeighbor(Orientation orientation, Tile tile) {

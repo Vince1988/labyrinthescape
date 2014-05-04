@@ -1,6 +1,5 @@
 package ch.vincent_genecand.bhf.labyrinthescape;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -22,8 +21,6 @@ public class Tile {
 
         g2.setColor(this.state.getColor());
         g2.fill(r);
-        g2.setColor(Color.GRAY);
-        // g2.draw(r);
     }
 
     public Point getPosition() {
