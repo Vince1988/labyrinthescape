@@ -6,10 +6,9 @@ import ch.vincent_genecand.bhf.labyrinthescape.gui.MainWindow;
 public class Main {
 
     public static void main(String[] args) {
-        Labyrinth l = new Labyrinth(100, 100);
+        Labyrinth l = new Labyrinth(150, 100);
+        l.generate();
         LabyrinthPanel p = new LabyrinthPanel(l);
         MainWindow w = new MainWindow(p);
-
     }
-
 }

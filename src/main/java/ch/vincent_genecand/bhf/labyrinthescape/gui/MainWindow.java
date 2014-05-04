@@ -14,6 +14,8 @@ public class MainWindow extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
 
+        this.setUndecorated(true);
+
         this.setContentPane(mainPanel);
 
         this.pack();
