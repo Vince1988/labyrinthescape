@@ -6,12 +6,13 @@ import ch.vincent_genecand.bfh.labyrinthescape.gui.MainWindow;
 public class Main {
 
     public static void main(String[] args) {
-        Labyrinth l = new Labyrinth(150, 100);
-        // l.generate();
+        Labyrinth l = new Labyrinth(200, 200);
         LabyrinthPanel p = new LabyrinthPanel(l);
         MainWindow w = new MainWindow(p);
-
         new Thread(w).start();
-        l.generate();
+
+        // LabyrinthGenerator.iterativeGeneration(l);
+        LabyrinthGenerator.recursiveGeneration(l);
+
     }
 }

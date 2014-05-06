@@ -3,6 +3,8 @@ package ch.vincent_genecand.bfh.labyrinthescape;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Tile {
 
@@ -36,6 +38,20 @@ public class Tile {
         int posY = this.y + orientA.getdY() + orientB.getdY();
 
         return labyrinth.getTileAt(posX, posY);
+    }
+
+    public List<Tile> getAllNeighborsOriented(Labyrinth labyrinth, Orientation orientation) {
+        List<Tile> neighbors = new ArrayList<>();
+
+        for (Orientation o : Orientation.values()) {
+            if (o != orientation.opposite()) {
+                neighbors.add(this.getNeighbor(labyrinth, o));
+                if (o != orientation) {
+                    neighbors.add(this.getDiagonalNeighbor(labyrinth, orientation, o));
+                }
+            }
+        }
+        return neighbors;
     }
 
     public Point getPosition() {

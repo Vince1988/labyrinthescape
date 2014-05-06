@@ -4,7 +4,7 @@ import java.awt.Color;
 
 public enum TileState {
 
-    WALL(Color.BLACK), EMPTY(Color.WHITE);
+    WALL(Color.BLACK), EMPTY(Color.WHITE), ACTIVE(Color.RED);
 
     private final Color color;
 

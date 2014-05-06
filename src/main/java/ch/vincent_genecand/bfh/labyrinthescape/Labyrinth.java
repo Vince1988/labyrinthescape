@@ -2,12 +2,14 @@ package ch.vincent_genecand.bfh.labyrinthescape;
 
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Labyrinth {
 
-    public final static int TILE_SIZE = 10;
+    public final static int TILE_SIZE = 3;
 
     private final int columns;
     private final int rows;
@@ -30,53 +32,10 @@ public class Labyrinth {
         }
     }
 
-    public void generate() {
-        Tile t = this.getTileAt(0, this.rows / 2);
-        t.setState(TileState.EMPTY);
-        this.nextTile(t);
-        System.out.println("done");
-    }
-
-    private void nextTile(Tile tile) {
-        for (Orientation o : Orientation.getAllShuffled()) {
-            if (this.isTileAheadUsable(o, tile)) {
-                try {
-                    Thread.sleep(1);
-                } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                Tile t = tile.getNeighbor(this, o);
-                t.setState(TileState.EMPTY);
-                this.nextTile(t);
-            }
+    public void reset() {
+        for (Tile tile : this.tiles.values()) {
+            tile.setState(TileState.WALL);
         }
-    }
-
-    public boolean isTileAheadUsable(Orientation orientation, Tile tile) {
-        Tile tileAhead = tile.getNeighbor(this, orientation);
-        if (!this.checkTile(tileAhead)) {
-            return false;
-        } else {
-            Tile front = tileAhead.getNeighbor(this, orientation);
-            if (!this.checkTile(front)) {
-                return false;
-            }
-
-            for (Orientation o : Orientation.values()) {
-                if (orientation != o && orientation.opposite() != o) {
-                    if (!this.checkTile(tileAhead.getNeighbor(this, o)) || !this.checkTile(tileAhead.getDiagonalNeighbor(this, orientation, o))) {
-                        return false;
-                    }
-                }
-            }
-
-            return true;
-        }
-    }
-
-    private boolean checkTile(Tile tile) {
-        return tile != null && tile.getState() == TileState.WALL;
     }
 
     public Tile getTileAt(Point position) {
@@ -101,4 +60,7 @@ public class Labyrinth {
         return this.rows;
     }
 
+    public final Collection<Tile> getTiles() {
+        return Collections.unmodifiableCollection(this.tiles.values());
+    }
 }
