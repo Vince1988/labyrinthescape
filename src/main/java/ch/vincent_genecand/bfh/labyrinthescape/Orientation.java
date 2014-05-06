@@ -1,6 +1,5 @@
 package ch.vincent_genecand.bfh.labyrinthescape;
 
-import java.awt.Point;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -24,13 +23,6 @@ public enum Orientation {
         return this.dY;
     }
 
-    public Point translate(Point p) {
-        Point point = new Point(p);
-        point.translate(this.dX, this.dY);
-
-        return point;
-    }
-
     public Orientation opposite() {
         switch (this) {
         case N:
@@ -46,16 +38,8 @@ public enum Orientation {
         }
     }
 
-    public static Point combination(Orientation orientationA, Orientation orientationB) {
-        return new Point(orientationA.dX + orientationB.dX, orientationA.dY + orientationB.dY);
-    }
-
-    public static List<Orientation> getAll() {
-        return Arrays.asList(Orientation.values());
-    }
-
     public static List<Orientation> getAllShuffled() {
-        List<Orientation> list = Orientation.getAll();
+        List<Orientation> list = Arrays.asList(Orientation.values());
         Collections.shuffle(list);
 
         return list;

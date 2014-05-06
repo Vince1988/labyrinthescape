@@ -23,9 +23,26 @@ public class Tile {
         g2.fill(r);
     }
 
+    public Tile getNeighbor(Labyrinth labyrinth, Orientation orient) {
+        return labyrinth.getTileAt(this.x + orient.getdX(), this.y + orient.getdY());
+    }
+
+    public Tile getDiagonalNeighbor(Labyrinth labyrinth, Orientation orientA, Orientation orientB) {
+        if (orientA == orientB || orientA == orientB.opposite()) {
+            return this;
+        }
+
+        int posX = this.x + orientA.getdX() + orientB.getdX();
+        int posY = this.y + orientA.getdY() + orientB.getdY();
+
+        return labyrinth.getTileAt(posX, posY);
+    }
+
     public Point getPosition() {
         return new Point(this.x, this.y);
     }
+
+    /* Getters & Setters */
 
     public TileState getState() {
         return this.state;

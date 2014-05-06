@@ -46,28 +46,26 @@ public class Labyrinth {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                this.getNeighbor(o, tile).setState(TileState.EMPTY);
-                this.nextTile(this.getNeighbor(o, tile));
+                Tile t = tile.getNeighbor(this, o);
+                t.setState(TileState.EMPTY);
+                this.nextTile(t);
             }
         }
     }
 
     public boolean isTileAheadUsable(Orientation orientation, Tile tile) {
-        Tile tileAhead = this.getNeighbor(orientation, tile);
+        Tile tileAhead = tile.getNeighbor(this, orientation);
         if (!this.checkTile(tileAhead)) {
             return false;
         } else {
-            Tile front = this.getNeighbor(orientation, tileAhead);
+            Tile front = tileAhead.getNeighbor(this, orientation);
             if (!this.checkTile(front)) {
                 return false;
             }
 
-            for (Orientation o : Orientation.getAll()) {
+            for (Orientation o : Orientation.values()) {
                 if (orientation != o && orientation.opposite() != o) {
-                    Point p = Orientation.combination(orientation, o);
-                    Point pos = tileAhead.getPosition();
-                    pos.translate(p.x, p.y);
-                    if (!this.checkTile(this.getNeighbor(o, tileAhead)) || !this.checkTile(this.getTileAt(pos))) {
+                    if (!this.checkTile(tileAhead.getNeighbor(this, o)) || !this.checkTile(tileAhead.getDiagonalNeighbor(this, orientation, o))) {
                         return false;
                     }
                 }
@@ -79,10 +77,6 @@ public class Labyrinth {
 
     private boolean checkTile(Tile tile) {
         return tile != null && tile.getState() == TileState.WALL;
-    }
-
-    public Tile getNeighbor(Orientation orientation, Tile tile) {
-        return this.getTileAt(orientation.translate(tile.getPosition()));
     }
 
     public Tile getTileAt(Point position) {
