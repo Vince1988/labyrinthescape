@@ -1,4 +1,4 @@
-package ch.vincent_genecand.bhf.labyrinthescape.gui;
+package ch.vincent_genecand.bfh.labyrinthescape.gui;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

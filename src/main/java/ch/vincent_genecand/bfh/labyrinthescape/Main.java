@@ -1,7 +1,7 @@
-package ch.vincent_genecand.bhf.labyrinthescape;
+package ch.vincent_genecand.bfh.labyrinthescape;
 
-import ch.vincent_genecand.bhf.labyrinthescape.gui.LabyrinthPanel;
-import ch.vincent_genecand.bhf.labyrinthescape.gui.MainWindow;
+import ch.vincent_genecand.bfh.labyrinthescape.gui.LabyrinthPanel;
+import ch.vincent_genecand.bfh.labyrinthescape.gui.MainWindow;
 
 public class Main {
 

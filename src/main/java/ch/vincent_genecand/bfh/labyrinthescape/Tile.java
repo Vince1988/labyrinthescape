@@ -1,4 +1,4 @@
-package ch.vincent_genecand.bhf.labyrinthescape;
+package ch.vincent_genecand.bfh.labyrinthescape;
 
 import java.awt.Graphics2D;
 import java.awt.Point;

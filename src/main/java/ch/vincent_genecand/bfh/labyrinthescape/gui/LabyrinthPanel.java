@@ -1,4 +1,4 @@
-package ch.vincent_genecand.bhf.labyrinthescape.gui;
+package ch.vincent_genecand.bfh.labyrinthescape.gui;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-import ch.vincent_genecand.bhf.labyrinthescape.Labyrinth;
+import ch.vincent_genecand.bfh.labyrinthescape.Labyrinth;
 
 public class LabyrinthPanel extends JPanel {
 
