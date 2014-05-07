@@ -1,5 +1,6 @@
 package ch.vincent_genecand.bfh.labyrinthescape;
 
+import ch.vincent_genecand.bfh.labyrinthescape.generators.LabyrinthGenerator;
 import ch.vincent_genecand.bfh.labyrinthescape.gui.LabyrinthPanel;
 import ch.vincent_genecand.bfh.labyrinthescape.gui.MainWindow;
 

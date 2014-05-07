@@ -1,9 +1,15 @@
-package ch.vincent_genecand.bfh.labyrinthescape;
+package ch.vincent_genecand.bfh.labyrinthescape.generators;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+
+import ch.vincent_genecand.bfh.labyrinthescape.Labyrinth;
+import ch.vincent_genecand.bfh.labyrinthescape.Orientation;
+import ch.vincent_genecand.bfh.labyrinthescape.Tile;
+import ch.vincent_genecand.bfh.labyrinthescape.TileStack;
+import ch.vincent_genecand.bfh.labyrinthescape.TileState;
 
 public class LabyrinthGenerator {
 
