@@ -1,6 +1,6 @@
 package ch.vincent_genecand.bfh.labyrinthescape;
 
-import ch.vincent_genecand.bfh.labyrinthescape.generators.LabyrinthGenerator;
+import ch.vincent_genecand.bfh.labyrinthescape.generators.RecursiveLabyrinthGenerator;
 import ch.vincent_genecand.bfh.labyrinthescape.gui.LabyrinthPanel;
 import ch.vincent_genecand.bfh.labyrinthescape.gui.MainWindow;
 
@@ -12,8 +12,8 @@ public class Main {
         MainWindow w = new MainWindow(p);
         new Thread(w).start();
 
-        // LabyrinthGenerator.iterativeGeneration(l);
-        LabyrinthGenerator.recursiveGeneration(l);
-
+        new RecursiveLabyrinthGenerator(l).start();
+        // new IterativeLabyrinthGenerator(l).start();
+        ;
     }
 }
