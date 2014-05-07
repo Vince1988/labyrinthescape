@@ -26,7 +26,7 @@
                         <archive>
                             <manifest>
                                 <addClasspath>true</addClasspath>
-                                <mainClass>ch.vincent_genecand.bhf.labyrinthescape.Main</mainClass>
+                                <mainClass>ch.vincent_genecand.bfh.labyrinthescape.Main</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
